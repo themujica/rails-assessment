@@ -17,16 +17,31 @@ gem 'puma', '~> 5.0'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+#
+gem 'barby',  '~> 0.6.2'
 
+gem 'net-smtp', require: false
+gem 'net-imap', require: false
+gem 'net-pop', require: false
+gem "rqrcode", "~> 2.0"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'sprockets', '~>3.0'
+gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'font_awesome5_rails'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
-
+# Bootstrap 4
+gem 'bootstrap', '~> 4.4.1'
+gem "webpacker", "~> 5.0"
+gem "turbolinks", "~> 5"
+# Popper_js
+gem 'popper_js', '~> 1.16'
+gem "jbuilder", "~> 2.7"
+# Jquery-rails
+gem 'jquery-rails', '~> 4.3.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'awesome_print'

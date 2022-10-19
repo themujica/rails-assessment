@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <invoice_uuid>4b40a0ab-0669-41a8-b9ee-d49480a247c5</invoice_uuid>
+  <status>active</status>
+  <emitter>
+    <name>Margo Mojica Alanís</name>
+    <rfc>&amp;CB750303AY5</rfc>
+  </emitter>
+  <receiver>
+    <name>Gregorio Nájera Cordero</name>
+    <rfc>MEB7108152FI</rfc>
+  </receiver>
+  <amount>
+    <!-- eg. 1234 cents = 12.34 -->
+    <cents type="integer">600700</cents>
+    <!-- ISO 4217 -->
+    <currency>BWP</currency>
+  </amount>
+  <emitted_at type="date">2021-04-19</emitted_at>
+  <expires_at type="date">2022-03-11</expires_at>
+  <signed_at type="date">2018-03-27</signed_at>
+  <cfdi_digital_stamp type="text">bfgbe3zkjmrm3n3vly8f32u6sscefqfp1wz7nioczrfv1y3abgonsybo2nuetjh40k4y2umdl2cvgjql6tfyk9y7u6bmxl7epg06zl91tkw35g3pv07yc5yl1x68yn506sdb3yoiewywl6ctiuz1yuvolsq8robeuolnvfnphfgjb63vdo342kryr7buots43m85wz2ffjspfs3ne9wnkxc1zg8l8bgy465qp961jl27sgdqtbev6woe52bquh1</cfdi_digital_stamp>
+</hash>

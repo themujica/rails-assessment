@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <title>rails-assessment</title>
+</head>
+
+<body>
+
+<div class="col-md-3" style="
+float: left;
+">
+  <a href="/invoices/create" class="btn btn-dark">Nuevo</a>
+</div>
+<div class="col-md-3" style="
+float: left;
+">
+ <!-- <a href="/invoices/execute_rake" class="btn btn-dark">Cargar datos de xml</a> -->
+</div>
+  <div class="col-md-3" style="
+  float: left;
+  ">
+    <%= form_tag invoices_index_path, method: :get do %>
+      <div class="form-group">
+        <%= text_field_tag :concept, params[:concept], class: "form-control", placeholder: "Concepto" %>
+      </div>
+      <div class="form-group">
+        <select name="type_search" id="type_search">
+          <%= options_for_select([['Emisor','emitter_name'], ['Receptor', 'receiver_name'], ['Estatus', 'status']]) %>
+        </select>
+
+      </div>
+      <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md" %>
+    <% end %>
+    <div>Numero de registros   <%= @Invoices.count %> </div>
+  </div>
+  <div class="table-responsive">
+
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>UUID</th>
+        <th>Emisor</th>
+        <th>RFC Emisor</th>
+        <th>Receptor</th>
+        <th>RFC Receptor</th>
+        <th>Estatus</th>
+        <th>Monto</th>
+        <th>Divisa</th>
+        <th>Fecha emision</th>
+        <th>Fecha expiracion</th>
+        <th>Fecha de firma</th>
+        <th></th>
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <% @Invoices.each do |invoices| %>
+        <tr>
+
+          <td class="v-align-middle"><%= invoices.invoice_uuid %></td>
+          <td class="v-align-middle"><%= invoices.emitter_name %></td>
+          <td class="v-align-middle"><%= invoices.emitter_rfc  %></td>
+          <td class="v-align-middle"><%= invoices.receiver_name %></td>
+          <td class="v-align-middle"><%= invoices.receiver_rfc %></td>
+          <td class="v-align-middle"><%= invoices.status %></td>
+          <td class="v-align-middle"><%= invoices.amount %></td>
+          <td class="v-align-middle"><%= invoices.currency %></td>
+          <td class="v-align-middle"><%= invoices.emitted_at %></td>
+          <td class="v-align-middle"><%= invoices.expires_at %></td>
+          <td class="v-align-middle"><%= invoices.signed_at %></td>
+
+          <td class="v-align-middle">
+
+            <form method="POST" action="/invoices/delete/<%= invoices.id %>" accept-charset="UTF-8" class="form-horizontal" role="form" onsubmit="return ConfirmDelete()">
+
+              <!-- Protección CSRF -->
+              <%= token_tag nil %>
+
+              <a href="/invoices/show/<%= invoices.id %>" class="btn btn-dark">Detalles</a>
+              <a href="/invoices/update/<%= invoices.id %>" class="btn btn-primary">Editar</a>
+
+              <button type="submit" class="btn btn-danger">Eliminar</button>
+
+            </form>
+
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+    function ConfirmDelete()
+    {
+        var x = confirm("Estas seguro de Eliminar?");
+        if (x)
+            return true;
+        else
+            return false;
+    }
+
+</script>
+
+</body>
+</html>

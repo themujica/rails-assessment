@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <invoice_uuid>dbacb2ce-8bd1-4b76-bc05-77fc7df87e19</invoice_uuid>
+  <status>active</status>
+  <emitter>
+    <name>Mariel Jeréz Gil</name>
+    <rfc>WIM1902054X3</rfc>
+  </emitter>
+  <receiver>
+    <name>Jorge Portillo Moreno</name>
+    <rfc>UTP100510NU6</rfc>
+  </receiver>
+  <amount>
+    <!-- eg. 1234 cents = 12.34 -->
+    <cents type="integer">800172</cents>
+    <!-- ISO 4217 -->
+    <currency>BGN</currency>
+  </amount>
+  <emitted_at type="date">2022-10-23</emitted_at>
+  <expires_at type="date">2022-03-15</expires_at>
+  <signed_at type="date">2022-05-03</signed_at>
+  <cfdi_digital_stamp type="text">hhxjnq5zz63huxw5gkevcfoq758f9dk08bl01va5m0v4oom9isqgq7npyq57f8e089woiip11o659pex8xb1tlbbk6unjdcs50owhjssjqbino1oxnhtlc9bhv4lhynr0ulrv0auabpbwc8bdhx704g0cgieiet3tkvinw5i0ttaralk4sthg9rf4a0j61xttu0r09o4uubaore5pxgmvo8oa1kfvoxr7a5m39r5hbm49r6f4zo3rvz4r79or1d</cfdi_digital_stamp>
+</hash>

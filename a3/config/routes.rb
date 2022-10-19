@@ -1,5 +1,29 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'invoices/index'
+  get 'invoices/show/:id'=> 'invoices#show'
+  get 'invoices/create' => 'invoices#create'
+  get 'invoices/generate_qr' => 'invoices#generate_qr'
+
+  get 'invoices/update/:id', to: 'invoices#update'
+  post 'invoices/edit/:id', to: 'invoices#edit'
+  post 'invoices/insert', to: 'invoices#insert'
+  post 'invoices/delete/:id', to: 'invoices#delete'
+
+  root "static_pages#home"
+  post "sign_up", to: "users#create"
+  get "sign_up", to: "users#new"
+  put "account", to: "users#update"
+  get "account", to: "users#edit"
+  delete "account", to: "users#destroy"
+  resources :confirmations, only: [:edit, :new], param: :confirmation_token
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy"
+  get "login", to: "sessions#new"
+  resources :passwords, only: [ :edit, :new, :update], param: :password_reset_token
+  resources :active_sessions, only: [:destroy] do
+    collection do
+      delete "destroy_all"
+    end
+  end
 end

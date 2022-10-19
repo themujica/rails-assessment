@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>rails-assessment</title>
+</head>
+
+<body>
+
+<% @Invoices.each do |invoices| %>
+
+  <div class="text-center">
+    <div class="container">
+      <h3 class="jumbotron-heading">Factura  <%= invoices.id %></h3>
+    </div>
+  </div>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-5" align="left">
+
+          <br><br>
+
+          <strong>UUID</strong> <%= invoices.invoice_uuid %>
+          <br><br>
+          <strong>Emisor</strong> <%= invoices.emitter_name %>
+          <br><br>
+          <strong>Receptor</strong> <%= invoices.receiver_name %>
+          <br><br>
+          <strong>Rfc emisor</strong> <%= invoices.receiver_rfc %>
+          <br><br>
+
+          <strong>Monto</strong> <%= invoices.amount %>
+          <br><br>
+          <strong>Divisa</strong> <%= invoices.currency %>
+          <br><br>
+          <strong>Fecha emision</strong> <%= invoices.emitted_at %>
+          <br><br>
+          <strong>Fecha expiracion</strong> <%= invoices.expires_at %>
+          <br><br>
+          <strong>Fecha de firma</strong> <%= invoices.signed_at %>
+          <br><br>
+          <strong>stamp:</strong> <%= invoices.cfdi_digital_stamp %>
+          <br><br>
+
+
+        </div>
+  <div class="col-md-6">
+    <% @url_qr='http://localhost:3000/invoices/show/'+invoices.id.to_s%>
+ <% @data ='data:image/png;base64,'+ generate_qr(@url_qr)  %>
+
+    <img src="<%=@data%>">
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+<% end %>
+
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>invoices </title>
+</head>
+
+<body>
+
+<% @Invoices.each do |invoices| %>
+<%url_up = '/invoices/edit/'+invoices.id.to_s %>
+  <%= form_with model: @Invoices, url: url_up do |form| %>
+
+    <div class="panel-body">
+
+      <div class="form-group">
+        <%= form.label :'UUID:', class: "negrita" %>
+        <%= form.text_field :invoice_uuid, value:invoices.invoice_uuid , class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :'Emisor:', class: "negrita" %>
+        <%= form.text_field :emitter_name,  value:invoices.emitter_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :'RFC Emisor:', class: "negrita" %>
+        <%= form.text_field :emitter_rfc,  value:invoices.emitter_rfc, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :'Receptor:', class: "negrita" %>
+        <%= form.text_field :receiver_name,  value:invoices.receiver_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :'RFC Receptor:', class: "negrita" %>
+        <%= form.text_field :receiver_rfc,  value:invoices.receiver_rfc, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :'Estatus:', class: "negrita" %>
+        <%= form.text_field :status,  value:invoices.status, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :'Mont:', class: "negrita" %>
+        <%= form.text_field :amount, value:invoices.amount, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :'Emision:', class: "negrita" %>
+        <%= form.text_field :emitted_at, value:invoices.emitted_at,  class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :'Expira el:', class: "negrita" %>
+        <%= form.text_field :expires_at, value:invoices.expires_at, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :'Firmado el:', class: "negrita" %>
+        <%= form.text_field :signed_at,  class: "form-control" %>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <%= form.label :'Cfdi:', class: "negrita" %>
+      <%= form.text_field :cfdi_digital_stamp,  value:invoices.cfdi_digital_stamp, class: "form-control" %>
+    </div>
+    <%= form.submit "Guardar", class: "btn btn-info" %>
+    <%= link_to 'Cancelar', url_for(:back), class: "btn btn-warning" %>
+    </div>
+    </div>
+  <% end %>
+
+<% end %>
+</body>
+</html>
